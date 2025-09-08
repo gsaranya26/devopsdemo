@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple HTML Starter</title>
+
+  <!-- Basic styles -->
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --muted: #6b7280;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #111827;
+      line-height: 1.5;
+      padding: 32px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    header img.logo {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: linear-gradient(135deg,#e0f2fe,#c7f9d8);
+    }
+
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+      margin-bottom: 18px;
+    }
+
+    h1 { margin: 0; font-size: 1.4rem; }
+    p.muted { color: var(--muted); margin: 8px 0 0; }
+
+    img.hero {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-top: 12px;
+    }
+
+    .row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+    .col { flex: 1 1 200px; }
+
+    label { display:block; font-weight: 600; margin-bottom: 6px; }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #e6e9ef;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer { text-align:center; color:var(--muted); margin-top: 18px; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img class="logo" src="https://via.placeholder.com/64" alt="logo">
+      <div>
+        <h1>My Simple HTML Page</h1>
+        <p class="muted">A friendly starter template — edit and experiment!</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Welcome</h2>
+      <p class="muted">This is a minimal but practical layout that includes a hero image, a short form, and a little interactivity.</p>
+      <img class="hero" src="https://via.placeholder.com/1200x400" alt="hero image">
+    </section>
+
+    <section class="card">
+      <h3>Contact form</h3>
+      <form id="contactForm">
+        <div class="row">
+          <div class="col">
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="col">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com">
+          </div>
+        </div>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write something..."></textarea>
+
+        <div style="margin-top:10px;">
+          <button type="submit">Send</button>
+        </div>
+      </form>
+
+      <p id="response" class="muted" style="margin-top:10px;"></p>
+    </section>
+
+    <section class="card">
+      <h3>Examples</h3>
+      <p>Here are a couple quick examples:</p>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">Learn more about HTML (MDN)</a></li>
+        <li><a href="#" id="demoBtn">Click me to greet</a></li>
+      </ul>
+    </section>
+
+    <footer class="muted">Made with ❤️ — edit this and make it yours.</footer>
+  </div>
+
+  <script>
+    // Form submission — demonstrates simple client-side handling (no server)
+    const form = document.getElementById('contactForm');
+    const response = document.getElementById('response');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim() || 'Friend';
+      response.textContent = `Thanks, ${name}! (This demo doesn't send data — plug in your server or use fetch.)`;
+      form.reset();
+    });
+
+    // Greeting link example
+    document.getElementById('demoBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      alert('Hello — welcome to your HTML template!');
+    });
+  </script>
+</body>
+</html>
